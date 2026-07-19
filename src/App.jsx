@@ -1,4 +1,5 @@
 import { useState, lazy, Suspense } from 'react'
+import ErrorBoundary from './components/ErrorBoundary'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -18,9 +19,11 @@ export default function App() {
   return (
     <div className="relative min-h-screen">
       <div className="fixed inset-0 z-0 opacity-60 pointer-events-none">
-        <Suspense fallback={null}>
-          <Scene3D />
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={null}>
+            <Scene3D />
+          </Suspense>
+        </ErrorBoundary>
       </div>
       <div className="fixed inset-0 z-0 pointer-events-none bg-gradient-to-b from-dark-900/40 via-transparent to-dark-900/80" />
 
