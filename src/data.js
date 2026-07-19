@@ -1,23 +1,57 @@
 export const profile = {
   name: 'Zahida Asha Falia',
-  title: 'Class XII PPLG 2',
+  title: 'Kelas XII PPLG 2',
   titleEn: 'Class XII PPLG 2',
   tagline: 'Pengembang Perangkat Lunak & Gim',
   taglineEn: 'Software & Game Development Student',
-  email: 'zahidaasafalia@gmail.com',
+  phone: '085647076201',
+  wa: 'https://wa.me/6285647076201',
   location: 'Indonesia',
-  photo: 'https://images.pexels.com/photos/7773556/pexels-photo-7773556.jpeg?auto=compress&cs=tinysrgb&w=600',
+  photo: '/images/image.png',
   socials: [
+    { name: 'WhatsApp', url: 'https://wa.me/6285647076201', icon: 'whatsapp' },
     { name: 'GitHub', url: 'https://github.com/zahidaashafalia', icon: 'github' },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/zahida-asha-falia-027480422/', icon: 'linkedin' },
-    { name: 'Instagram', url: 'https://www.instagram.com/ashafally/', icon: 'instagram' },
-    { name: 'Email', url: 'mailto:zahidaasafalia@gmail.com', icon: 'mail' },
+    { name: 'Instagram', url: 'https://www.instagram.com/ashafally?igsh=cjRrZXF0b3djeDJn', icon: 'instagram' },
   ],
 }
 
 export const bio = {
-  id: 'Mahasiswa jurusan Pengembangan Perangkat Lunak dan Gim (PPLG) yang tertarik pada analisis sistem, desain antarmuka, dan pengembangan aplikasi berbasis web.',
-  en: 'Software & Game Development (PPLG) student passionate about system analysis, interface design, and web application development.',
+  id: 'Saya adalah siswi yang memiliki minat di bidang Web Development, UI/UX Design, dan Artificial Intelligence (AI). Saya senang mempelajari teknologi baru, membangun website yang responsif dan mudah digunakan, serta terus mengembangkan kemampuan melalui project pribadi maupun akademik.',
+  en: 'I am a student with a strong interest in Web Development, UI/UX Design, and Artificial Intelligence (AI). I enjoy learning new technologies, building responsive and user-friendly websites, and continuously improving my skills through personal and academic projects.',
+}
+
+export const aboutSections = {
+  technicalSkills: {
+    id: 'Technical Skills',
+    en: 'Technical Skills',
+    items: ['HTML', 'CSS', 'JavaScript', 'PHP', 'Laravel', 'Bootstrap', 'MySQL'],
+  },
+  tools: {
+    id: 'Tools & Teknologi',
+    en: 'Tools & Technologies',
+    items: ['Visual Studio Code', 'Figma', 'Git & GitHub', 'Postman', 'XAMPP', 'Laragon'],
+  },
+  learned: {
+    id: 'Yang Telah Dipelajari',
+    en: "What I've Learned",
+    items: ['Flutter (Dasar)', 'MongoDB (Dasar)', 'Arduino & Ubidots (Dasar)', 'UI/UX Design', 'Responsive Web Design', 'CRUD Application', 'REST API (Dasar)', 'Database Systems', 'SDLC'],
+  },
+  interests: {
+    id: 'Minat',
+    en: 'Interests',
+    items: ['Web Development', 'UI/UX Design', 'Artificial Intelligence (AI)', 'Database Systems', 'Teknologi Baru'],
+  },
+  hobbies: {
+    id: 'Hobi',
+    en: 'Hobbies',
+    items: ['Mendengarkan Musik', 'Nonton Film', 'Browsing Inspirasi Desain', 'Menjelajahi Hal Baru'],
+  },
+  softSkills: {
+    id: 'Soft Skills',
+    en: 'Soft Skills',
+    items: ['Problem Solving', 'Teamwork', 'Communication', 'Time Management', 'Adaptability', 'Fast Learner', 'Attention to Detail'],
+  },
 }
 
 export const skills = [
@@ -33,8 +67,6 @@ export const skills = [
   { name: 'Git & GitHub', level: 80, category: 'Tools' },
   { name: 'UI/UX Design', level: 88, category: 'Design' },
   { name: 'System Analysis', level: 82, category: 'Analysis' },
-  { name: 'Scrum (dasar)', level: 70, category: 'Analysis' },
-  { name: 'Requirement Analysis', level: 80, category: 'Analysis' },
   { name: 'Postman', level: 75, category: 'API' },
   { name: 'REST API', level: 72, category: 'API' },
 ]
@@ -108,21 +140,21 @@ export const projects = [
 export const experience = [
   {
     type: 'Ekstrakurikuler',
-    title: 'PMR (Palang Merah Remaja)',
-    period: 'Aktif',
-    description: 'Anggota aktif Palang Merah Remaja, mengembangkan soft skills seperti teamwork, communication, dan kepedulian sosial.',
-  },
-  {
-    type: 'Ekstrakurikuler',
+    typeEn: 'Extracurricular',
     title: 'Web Development Club',
     period: 'Aktif',
-    description: 'Anggota club web development, mendalami praktik pengembangan website dan kolaborasi proyek.',
+    periodEn: 'Active',
+    description: 'Anggota club web development, mendalami praktik pengembangan website modern dan kolaborasi proyek.',
+    descriptionEn: 'Member of the web development club, deepening skills in modern website development and project collaboration.',
   },
   {
     type: 'Pendidikan',
+    typeEn: 'Education',
     title: 'Jurusan PPLG (Pengembangan Perangkat Lunak dan Gim)',
-    period: 'Class XII',
-    description: 'Mempelajari analisis sistem, UI/UX design, front-end & back-end development, database, API, version control, dan soft skills.',
+    period: 'Kelas XII',
+    periodEn: 'Class XII',
+    description: 'Mempelajari analisis sistem, UI/UX design, front-end & back-end development, database, API, version control, serta soft skills.',
+    descriptionEn: 'Studying system analysis, UI/UX design, front-end & back-end development, database, API, version control, and soft skills.',
   },
 ]
 
@@ -166,19 +198,20 @@ export const competencies = [
   {
     title: 'Soft Skills',
     titleEn: 'Soft Skills',
-    items: ['Problem Solving', 'Critical Thinking', 'Teamwork', 'Communication', 'Project Planning', 'Time Management', 'Presentasi Proyek'],
+    items: ['Problem Solving', 'Critical Thinking', 'Teamwork', 'Communication', 'Time Management', 'Adaptability', 'Fast Learner'],
     icon: 'soft',
   },
   {
     title: 'Sedang Dipelajari',
     titleEn: 'Currently Learning',
-    items: ['UI/UX Modern', 'Website Modern', 'Integrasi AI', 'Firebase', 'Cloud Computing Dasar', 'Aplikasi Berbasis AI'],
+    items: ['Flutter', 'MongoDB', 'Arduino & Ubidots', 'UI/UX Modern', 'Integrasi AI', 'Firebase', 'Cloud Computing Dasar'],
     icon: 'learning',
   },
 ]
 
 export const techStack = [
-  'HTML', 'CSS', 'JavaScript', 'PHP', 'Laravel', 'MySQL', 'SQL',
+  'HTML', 'CSS', 'JavaScript', 'PHP', 'Laravel', 'MySQL',
   'Bootstrap', 'Tailwind CSS', 'Git', 'GitHub', 'Figma',
-  'XAMPP', 'Laragon', 'Composer', 'npm', 'Vite', 'Postman', 'VS Code'
+  'XAMPP', 'Laragon', 'npm', 'Vite', 'Postman', 'VS Code',
+  'Flutter', 'MongoDB', 'Arduino',
 ]

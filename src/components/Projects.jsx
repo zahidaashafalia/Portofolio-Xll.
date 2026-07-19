@@ -18,6 +18,7 @@ export default function Projects({ lang }) {
     view: 'View Details', close: 'Close',
   }
 
+
   const categories = ['All', 'Web Developer', 'Web Design']
   const filtered = filter === 'All' ? projects : projects.filter(p => p.category === filter)
 

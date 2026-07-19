@@ -2,35 +2,49 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
-const links = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'Tentang' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'competencies', label: 'Kompetensi' },
-  { id: 'projects', label: 'Proyek' },
-  { id: 'experience', label: 'Pengalaman' },
-  { id: 'contact', label: 'Kontak' },
-]
+const navLinks = {
+  id: [
+    { id: 'home', label: 'Beranda' },
+    { id: 'about', label: 'Tentang' },
+    { id: 'skills', label: 'Keahlian' },
+    { id: 'competencies', label: 'Kompetensi' },
+    { id: 'projects', label: 'Proyek' },
+    { id: 'experience', label: 'Pengalaman' },
+    { id: 'contact', label: 'Kontak' },
+  ],
+  en: [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'competencies', label: 'Competencies' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'contact', label: 'Contact' },
+  ],
+}
 
 export default function Navbar({ onToggleLang, lang }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState('home')
 
+  const links = navLinks[lang]
+
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50)
-      const sections = links.map(l => document.getElementById(l.id))
-      const current = sections.findIndex(s => {
-        if (!s) return false
-        const rect = s.getBoundingClientRect()
+      const ids = links.map(l => l.id)
+      const current = ids.findIndex(id => {
+        const el = document.getElementById(id)
+        if (!el) return false
+        const rect = el.getBoundingClientRect()
         return rect.top <= 120 && rect.bottom >= 120
       })
-      if (current >= 0) setActive(links[current].id)
+      if (current >= 0) setActive(ids[current])
     }
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [links])
 
   const go = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -81,7 +95,7 @@ export default function Navbar({ onToggleLang, lang }) {
           </button>
         </div>
 
-        <button onClick={() => setOpen(!open)} className="md:hidden text-white">
+        <button onClick={() => setOpen(!open)} className="md:hidden text-white p-2">
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -99,7 +113,7 @@ export default function Navbar({ onToggleLang, lang }) {
                 <button
                   key={l.id}
                   onClick={() => go(l.id)}
-                  className={`text-left px-4 py-3 rounded-xl transition-all ${
+                  className={`text-left px-4 py-3 rounded-xl transition-all font-medium ${
                     active === l.id ? 'bg-primary-500/20 text-white' : 'text-white/70 hover:bg-white/5'
                   }`}
                 >
@@ -108,9 +122,9 @@ export default function Navbar({ onToggleLang, lang }) {
               ))}
               <button
                 onClick={() => { onToggleLang(); setOpen(false) }}
-                className="text-left px-4 py-3 rounded-xl text-white/70 hover:bg-white/5"
+                className="text-left px-4 py-3 rounded-xl text-white/70 hover:bg-white/5 font-medium"
               >
-                Switch to {lang === 'id' ? 'English' : 'Indonesian'}
+                {lang === 'id' ? 'Switch to English' : 'Ganti ke Indonesia'}
               </button>
             </div>
           </motion.div>

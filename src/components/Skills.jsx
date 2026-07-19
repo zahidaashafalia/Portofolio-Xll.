@@ -4,7 +4,7 @@ import { skills } from '../data'
 
 export default function Skills({ lang }) {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true })
-  const t = lang === 'id' ? { title: 'Keahlian', label: 'Skills' } : { title: 'My Skills', label: 'Skills' }
+  const t = lang === 'id' ? { title: 'Keahlian', label: 'Keahlian' } : { title: 'My Skills', label: 'Skills' }
 
   return (
     <section id="skills" ref={ref} className="relative py-24 px-6">

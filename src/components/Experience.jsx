@@ -6,14 +6,16 @@ import { Briefcase, GraduationCap, Code2 } from 'lucide-react'
 export default function Experience({ lang }) {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true })
   const t = lang === 'id' ? {
-    title: 'Pengalaman & Pendidikan', label: 'Perjalanan',
+    title: 'Pengalaman & Pendidikan',
+    label: 'Perjalanan',
     tech: 'Teknologi yang Digunakan',
   } : {
-    title: 'Experience & Education', label: 'Journey',
+    title: 'Experience & Education',
+    label: 'Journey',
     tech: 'Technologies Used',
   }
 
-  const iconMap = { Ekstrakurikuler: Briefcase, Pendidikan: GraduationCap }
+  const iconMap = { Ekstrakurikuler: Briefcase, Extracurricular: Briefcase, Pendidikan: GraduationCap, Education: GraduationCap }
 
   return (
     <section id="experience" ref={ref} className="relative py-24 px-6">
@@ -32,6 +34,9 @@ export default function Experience({ lang }) {
           <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary-500 via-pink-500 to-transparent md:-translate-x-1/2" />
 
           {experience.map((e, i) => {
+            const typeLabel = lang === 'id' ? e.type : e.typeEn
+            const periodLabel = lang === 'id' ? e.period : e.periodEn
+            const desc = lang === 'id' ? e.description : e.descriptionEn
             const Icon = iconMap[e.type] || Briefcase
             const isLeft = i % 2 === 0
             return (
@@ -48,9 +53,9 @@ export default function Experience({ lang }) {
                   <Icon className="w-5 h-5 text-white" />
                 </div>
                 <div className="glass-card p-5 ml-8 md:ml-0 w-full">
-                  <span className="text-xs text-pink-400 font-medium uppercase tracking-wider">{e.type} · {e.period}</span>
+                  <span className="text-xs text-pink-400 font-medium uppercase tracking-wider">{typeLabel} · {periodLabel}</span>
                   <h3 className="font-display font-semibold text-lg mt-1 mb-2">{e.title}</h3>
-                  <p className="text-sm text-white/60 leading-relaxed">{e.description}</p>
+                  <p className="text-sm text-white/60 leading-relaxed">{desc}</p>
                 </div>
               </motion.div>
             )
